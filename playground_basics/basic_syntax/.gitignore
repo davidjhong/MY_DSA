@@ -1,2 +1,44 @@
 hello
-sumThree
+sumThre
+
+# Ignore compiled executables and object files
+*.o
+*.out
+*.exe
+*.a
+*.so
+*.dll
+
+# Ignore CMake & build directories
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+build/
+bin/
+lib/
+
+# Ignore Vim swap files and backup files
+*.swp
+*.swo
+*.swn
+*~
+
+# Ignore debugging & core dump files
+*.dSYM/
+*.core
+core.*
+
+# Ignore logs & temp files
+*.log
+*.tmp
+*.bak
+*.pid
+
+# Ignore dependency managers (if applicable)
+.vscode/
+.idea/
+*.DS_Store
+
+# Ignore system-specific files
+Thumbs.dbe
