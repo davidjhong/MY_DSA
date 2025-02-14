@@ -11,7 +11,8 @@ class vector {
         void resize(); // Automatically call when there's not enough space.
 
     public:
-        vector(); // Constructor
+        vector(); // Constructor initialization
+        vector(size_t n, const T& value); // Constructor with value initialization
         ~vector(); // Destructor
 
         void push_back(const T& value); // Pushes back an element to the end of the vector
@@ -21,5 +22,27 @@ class vector {
         size_t size() const; // Returns size
 };
 
-// Using only h file to reduce a potential code bloat -- where
-#endif
+template <typename T> // Constructor initialization
+vector<T>::vector()
+    : data(nullptr),
+      size_(0),
+      capacity_(0)
+{}
+
+template <typename T> // Constructor with parameters
+vector<T>::vector(size_t n, const T& value)
+    : data(new T[n]),
+      size_(n),
+      capacity_(n)
+{
+    for (size_t i = 0; i < n; i++){
+        data[i] = value;
+    }
+}
+
+template <typename T> // Destructor
+vector<T>::~vector() {
+    delete[] data; // Frees memory
+}
+
+#endif // MYVECTOR_H
